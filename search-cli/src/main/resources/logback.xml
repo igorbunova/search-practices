@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+  <!--read this documentation http://www.slf4j.org/legacy.html#jul-to-slf4j -->
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="service-log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/log.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>50MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.igorbunova" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="service-log"/>
+  </logger>
+
+  <logger name="org.elasticsearch" additivity="false">
+    <level value="WARN"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="service-log"/>
+  </logger>
+
+  <root level="WARN">
+    <appender-ref ref="console"/>
+    <appender-ref ref="service-log"/>
+  </root>
+</configuration>

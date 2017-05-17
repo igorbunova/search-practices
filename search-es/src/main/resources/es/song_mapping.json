@@ -1,0 +1,35 @@
+{
+  "song": {
+    "dynamic": "strict",
+    "_all": {
+      "enabled": "false"
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "analyzer" :"english",
+        "copy_to" : "text"
+      },
+      "artist_display_name": {
+        "type": "string",
+        "analyzer" :"english",
+        "copy_to" : "text"
+      },
+      "duration_ms": {
+        "type": "integer"
+      },
+      "album_display_name": {
+        "type": "string",
+        "analyzer" :"english",
+        "copy_to" : "text"
+      },
+      "isrc": {
+        "type": "string"
+      },
+      "text" : {
+        "type": "string",
+        "analyzer" :"english"
+      }
+    }
+  }
+}

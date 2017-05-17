@@ -13,6 +13,7 @@ public class Main {
         commands.put("load", new LoadData());
         commands.put("index", new IndexData());
         commands.put("search", new Search());
+        commands.put("delete", new DeleteData());
 
         new Launcher(commands).run(args);
     }

@@ -30,14 +30,15 @@ public class IndexData implements Runnable {
         this.object = object;
     }
 
-    @Parameter(names = {"--engine", "-e"}, converter = OpConverter.class,
+    @Parameter(names = {"--engine", "-e"}, converter = PutConverter.class,
+        description = "possible values: es, solr",
         required = true)
     public void setEngine(AsyncOperation<List<Song>, Long> engine) {
         this.engine = engine;
     }
 
     public void run() {
-        Config dbConf = Util.loadConfig("db/ds.conf");
+        Config dbConf = Util.loadConfig("ds.conf");
 
         DataSource ds = DataSourceFactory.create(dbConf);
 

@@ -38,6 +38,7 @@ public class Search implements Runnable {
     }
 
     @Parameter(names = {"--engine", "-e"}, converter = SearchConverter.class,
+        description = "possible values: es, solr",
         required = true)
     public void setEngine(AsyncSearch<Map<String, Object>> engine) {
         this.engine = engine;

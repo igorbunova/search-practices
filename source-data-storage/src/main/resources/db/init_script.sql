@@ -17,8 +17,8 @@ create table translation (
     constraint song_id_fk foreign key(song_id) references song(id)
 );
 
---copy song from './song.csv' delimiter ';' csv header;
---copy translation from './song_name_tr.csv' delimiter ';' csv header;
+\copy song from './song.csv' delimiter ';' csv header;
+\copy translation from './song_name_tr.csv' delimiter ';' csv header;
 
 alter table song add column modify_dt timestamp not null default now();
 alter table translation add column modify_dt timestamp not null default now();

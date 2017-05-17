@@ -14,11 +14,11 @@ import com.igorbunova.utils.Util;
 /**
  * OpConverter.
  */
-public class OpConverter implements IStringConverter<AsyncOperation<List<Song>, ?>> {
+public class PutConverter implements IStringConverter<AsyncOperation<List<Song>, ?>> {
     @Override
     public AsyncOperation<List<Song>, ?> convert(String s) {
         if ("es".equalsIgnoreCase(s)) {
-            Config esConf = Util.loadConfig("es/es.conf");
+            Config esConf = Util.loadConfig("es.conf");
 
             String index = esConf.getString("index");
             String type = esConf.getString("type");
@@ -28,7 +28,7 @@ public class OpConverter implements IStringConverter<AsyncOperation<List<Song>, 
         }
 
         if ("solr".equalsIgnoreCase(s)) {
-            Config solrConf = Util.loadConfig("solr/solr.conf");
+            Config solrConf = Util.loadConfig("solr.conf");
             String zkAddr = solrConf.getString("zookeeper");
             String collection = solrConf.getString("collection");
             int commitWithinMs = solrConf.getInt("commit.within.ms");

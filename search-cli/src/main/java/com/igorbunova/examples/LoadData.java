@@ -21,14 +21,15 @@ public class LoadData implements Runnable {
 
     private AsyncOperation<List<Song>, ?> engine = null;
 
-    @Parameter(names = {"--engine", "-e"}, converter = OpConverter.class,
+    @Parameter(names = {"--engine", "-e"}, converter = PutConverter.class,
+        description = "possible values: es, solr",
         required = true)
     public void setEngine(AsyncOperation<List<Song>, ?> engine) {
         this.engine = engine;
     }
 
     public void run() {
-        Config dbConf = Util.loadConfig("db/ds.conf");
+        Config dbConf = Util.loadConfig("ds.conf");
         DataSource ds = DataSourceFactory.create(dbConf);
 
         GetAll dbGet = new GetAll(ds);

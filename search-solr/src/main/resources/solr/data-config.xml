@@ -1,0 +1,16 @@
+<dataConfig>
+
+<dataSource name="songDs" driver="org.postgresql.Driver" url="jdbc:postgres:search_best_practices?user=postgres&amp;password=postgres" batchSize="1000"/>  
+
+<document name="song" >
+    <entity name="song" dataSource="songDs" query="select id::text as song_id,name,duration_ms,artist_display_name,album_display_name,isrc from song">
+      <field column="song_id" name="id"/>
+      <field column="name" name="name"/>
+      <field column="duration_ms" name="duration_ms"/>
+      <field column="artist_display_name" name="artist_display_name"/>
+      <field column="album_display_name" name="album_display_name"/>
+      <field column="isrc" name="isrc"/>
+    </entity>
+</document>
+
+</dataConfig>

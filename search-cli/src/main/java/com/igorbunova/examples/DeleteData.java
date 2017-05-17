@@ -26,7 +26,7 @@ public class DeleteData implements Runnable {
         this.engine = engine;
     }
 
-    @Parameter(names = {"--id", "-i"}, required = true)
+    @Parameter(names = {"--id", "-i"}, description = "entity id (long)", required = true)
     public void setId(long id) {
         this.id = id;
     }

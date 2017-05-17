@@ -25,7 +25,9 @@ public class IndexData implements Runnable {
     private AsyncOperation<List<Song>, Long> engine = null;
 
     @Parameter(names = {"--data", "-d"}, converter =
-        SongJsonConverter.class, required = true)
+        SongJsonConverter.class,
+        description = "single json object",
+        required = true)
     public void setObject(Song object) {
         this.object = object;
     }

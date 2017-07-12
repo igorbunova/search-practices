@@ -27,7 +27,7 @@ Note: it contains postgresql copy command execution to populate data, the best w
 [solr.conf](https://github.com/igorbunova/search-practices/blob/master/search-cli/src/main/resources/solr.conf) <br/>
 regarding your environment
 * mvn clean install
-* unzip search-cli/target/<name>-distr.zip ./<folder>
-* cd ./<folder>/bin
-* ./example.sh output all supported commands and options 
+* unzip search-cli/target/search-cli-{version}-distr.zip {folder}
+* cd {folder}/bin
+* ./example.sh outputs all supported commands and options 
 
